@@ -20,7 +20,17 @@ class QuoteApplication : Application() {
         super.onCreate()
         initialize()
         setupWorker()
+        quoteApplication = this
     }
+
+    companion object {
+        var quoteApplication : QuoteApplication? = null
+        fun getApplication() : QuoteApplication? {
+            return quoteApplication
+        }
+    }
+
+
 
     private fun setupWorker() {
         val constraint = Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build()
