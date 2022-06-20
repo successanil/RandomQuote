@@ -5,12 +5,12 @@ plugins {
 }
 
 android {
-    compileSdk 30
+    compileSdk 32
 
     defaultConfig {
         applicationId "com.cheezycode.randomquote"
         minSdk 21
-        targetSdk 30
+        targetSdk 32
         versionCode 1
         versionName "1.0"
 
@@ -45,13 +45,22 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
+    //coroutines
+
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1'
 
+    // viewmodel
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+
+    // room
 
     implementation "androidx.room:room-runtime:2.3.0"
     kapt "androidx.room:room-compiler:2.3.0"
     implementation "androidx.room:room-ktx:2.3.0"
+
+    // work manager
+    def work_version = "2.7.1"
+    implementation("androidx.work:work-runtime-ktx:$work_version")
 }

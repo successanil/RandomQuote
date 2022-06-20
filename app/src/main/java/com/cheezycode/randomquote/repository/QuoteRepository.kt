@@ -35,6 +35,14 @@ class QuoteRepository(
         }
 
     }
+
+    suspend fun getQuotesBackground() {
+        val randomNumber = (Math.random() * 10).toInt()
+        var result = quoteService.getQuotes(randomNumber)
+        if(result.body() != null) {
+            quoteDatabase.quoteDao().addQuotes(result.body()!!.results)
+        }
+    }
 }
 
 
